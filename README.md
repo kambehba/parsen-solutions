@@ -1,42 +1,74 @@
-# sv
+# Blennd — SvelteKit 5 + TypeScript + Tailwind CSS v4
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+A pixel-faithful recreation of [blennd.com](https://blennd.com) using:
 
-## Creating a project
+- **SvelteKit 2** (with **Svelte 5** runes syntax)
+- **TypeScript** throughout
+- **Tailwind CSS v4** (via `@tailwindcss/vite` plugin — no config file needed)
+- **Google Fonts** — Syne (display) + DM Sans (body)
 
-If you're seeing this, you've probably already done this step. Congrats!
+---
 
-```sh
-# create a new project
-npx sv create my-app
+## Getting Started
+
+### 1. Install dependencies
+
+```bash
+npm install
 ```
 
-To recreate this project with the same configuration:
+### 2. Run the dev server
 
-```sh
-# recreate this project
-npx sv@0.15.3 create --template minimal --types ts --add prettier tailwindcss="plugins:none" --install npm parsen-solutions
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```sh
+```bash
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
+Open [http://localhost:5173](http://localhost:5173).
 
-To create a production version of your app:
+### 3. Build for production
 
-```sh
+```bash
 npm run build
+npm run preview
 ```
 
-You can preview the production build with `npm run preview`.
+---
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+## Svelte 5 Highlights
+
+This project uses **Svelte 5 runes** exclusively:
+
+| Feature | Syntax |
+|---|---|
+| Reactive state | `let x = $state(0)` |
+| Derived values | `let y = $derived(x * 2)` |
+| Props | `let { children } = $props()` |
+| Slot replacement | `{@render children()}` |
+| Event handlers | `onclick={fn}` (no `on:click`) |
+
+---
+
+## Tailwind v4 Notes
+
+- No `tailwind.config.js` — configuration lives in `src/app.css` via `@theme { ... }`
+- Plugin is `@tailwindcss/vite` added directly to `vite.config.ts`
+- Custom brand tokens exposed as CSS variables and Tailwind utilities:
+  - `bg-brand-accent`, `text-brand-black`, `border-brand-gray-light`, etc.
+- Custom animations defined in `app.css`: `animate-marquee`, `animate-fade-up`, `animate-fade-in`
+
+---
+
+## Project Structure
+
+```
+src/
+├── app.html              # HTML shell
+├── app.css               # Tailwind + theme tokens + animations
+├── routes/
+│   ├── +layout.svelte    # Root layout (Nav + Footer)
+│   └── +page.svelte      # Home page
+└── lib/
+    └── components/
+        ├── Nav.svelte    # Responsive navigation with dropdowns
+        └── Footer.svelte # Site footer
+```
