@@ -1,4 +1,5 @@
 <script lang="ts">
+  import logo from '$lib/assets/logo_2.svg';
   type NavItem = { label: string; href: string };
   type ServiceGroup = Record<string, NavItem[]>;
 
@@ -37,80 +38,24 @@
   let industriesOpen = $state(false);
 </script>
 
-<header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-brand-gray-light">
+<!-- <header class="fixed top-8 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-brand-gray-light"> -->
+<header class="fixed top-8 left-0 right-0 z-50 bg-white backdrop-blur-md border-b border-brand-gray-light py-3">
   <nav class="max-w-[1280px] mx-auto px-8 flex items-center h-20 gap-8">
 
     <!-- Logo -->
     <a href="/" class="flex-shrink-0 mr-auto font-[family-name:var(--font-display)] font-extrabold text-2xl text-brand-black tracking-tight">
-      blennd
+      <img src={logo} alt="Parsen Solutions Logo" class="h-40 w-auto" />
     </a>
 
     <!-- Desktop links -->
     <ul class="hidden lg:flex items-center gap-1">
 
-      <!-- Services -->
-      <li
-        class="relative"
-        onmouseenter={() => (servicesOpen = true)}
-        onmouseleave={() => (servicesOpen = false)}
-      >
-        <a href="/services" class="flex items-center gap-1 px-3 py-2 font-[family-name:var(--font-display)] text-sm font-semibold text-brand-black hover:text-brand-accent transition-colors">
-          Services <span class="text-xs opacity-50">↓</span>
-        </a>
-        {#if servicesOpen}
-          <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-white border border-brand-gray-light rounded shadow-2xl p-6 flex gap-8 min-w-[640px] animate-fade-in">
-            {#each Object.entries(services) as [category, items]}
-              <div class="flex flex-col gap-1 min-w-[150px]">
-                <span class="font-[family-name:var(--font-display)] text-[0.65rem] font-bold tracking-[0.12em] uppercase text-brand-gray-mid mb-2">{category}</span>
-                {#each items as item}
-                  <a href={item.href} class="text-sm text-brand-gray-dark hover:text-brand-accent py-1 transition-colors">{item.label}</a>
-                {/each}
-              </div>
-            {/each}
-            <div class="flex flex-col gap-1 border-l border-brand-gray-light pl-6">
-              <a href="/services" class="flex flex-col gap-1 py-3 border-b border-brand-gray-light font-[family-name:var(--font-display)] text-sm font-semibold hover:text-brand-accent transition-colors">
-                Explore All Services →
-                <small class="font-[family-name:var(--font-body)] font-normal text-xs text-brand-gray-mid">A full overview of everything we offer.</small>
-              </a>
-              <a href="/contact" class="flex flex-col gap-1 py-3 font-[family-name:var(--font-display)] text-sm font-semibold hover:text-brand-accent transition-colors">
-                Schedule a Call →
-                <small class="font-[family-name:var(--font-body)] font-normal text-xs text-brand-gray-mid">Want to discuss your goals?</small>
-              </a>
-            </div>
-          </div>
-        {/if}
-      </li>
+      
 
-      <!-- Industries -->
-      <li
-        class="relative"
-        onmouseenter={() => (industriesOpen = true)}
-        onmouseleave={() => (industriesOpen = false)}
-      >
-        <a href="/industries" class="flex items-center gap-1 px-3 py-2 font-[family-name:var(--font-display)] text-sm font-semibold text-brand-black hover:text-brand-accent transition-colors">
-          Industries <span class="text-xs opacity-50">↓</span>
-        </a>
-        {#if industriesOpen}
-          <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-white border border-brand-gray-light rounded shadow-2xl p-6 flex gap-8 min-w-[400px] animate-fade-in">
-            <div class="flex flex-col gap-1">
-              <span class="font-[family-name:var(--font-display)] text-[0.65rem] font-bold tracking-[0.12em] uppercase text-brand-gray-mid mb-2">Industries</span>
-              {#each industries as item}
-                <a href={item.href} class="text-sm text-brand-gray-dark hover:text-brand-accent py-1 transition-colors">{item.label}</a>
-              {/each}
-            </div>
-            <div class="flex flex-col gap-1">
-              <span class="font-[family-name:var(--font-display)] text-[0.65rem] font-bold tracking-[0.12em] uppercase text-brand-gray-mid mb-2">Business Type</span>
-              {#each ['Small Business','Mid-Market','Enterprise','Business-to-Business (B2B)'] as biz}
-                <a href="/business-type/{biz.toLowerCase().replace(/\s+/g,'-')}" class="text-sm text-brand-gray-dark hover:text-brand-accent py-1 transition-colors">{biz}</a>
-              {/each}
-            </div>
-          </div>
-        {/if}
-      </li>
-
-      <li><a href="/work" class="px-3 py-2 font-[family-name:var(--font-display)] text-sm font-semibold text-brand-black hover:text-brand-accent transition-colors">Our Work</a></li>
-      <li><a href="/about" class="px-3 py-2 font-[family-name:var(--font-display)] text-sm font-semibold text-brand-black hover:text-brand-accent transition-colors">Company</a></li>
-      <li><a href="/resources" class="px-3 py-2 font-[family-name:var(--font-display)] text-sm font-semibold text-brand-black hover:text-brand-accent transition-colors">Resources</a></li>
+      <li><a href="/" class="px-3 py-2 font-[family-name:var(--font-display)] text-sm font-semibold text-brand-black hover:text-brand-accent transition-colors">Home</a></li>
+      <li><a href="/work" class="px-3 py-2 font-[family-name:var(--font-display)] text-sm font-semibold text-brand-black hover:text-brand-accent transition-colors">Products</a></li>
+      <li><a href="/about" class="px-3 py-2 font-[family-name:var(--font-display)] text-sm font-semibold text-brand-black hover:text-brand-accent transition-colors">Research and Developments</a></li>
+      <li><a href="/meetTheTeam" class="px-3 py-2 font-[family-name:var(--font-display)] text-sm font-semibold text-brand-black hover:text-brand-accent transition-colors">Meet the Team</a></li>
     </ul>
 
     <a href="/contact" class="hidden lg:inline-flex items-center px-5 py-3 bg-brand-accent hover:bg-brand-accent-hover text-white font-[family-name:var(--font-display)] text-sm font-semibold rounded-sm transition-colors flex-shrink-0">
@@ -133,8 +78,8 @@
   {#if mobileOpen}
     <div class="lg:hidden flex flex-col px-8 pb-6 pt-2 border-t border-brand-gray-light bg-white animate-fade-in">
       {#each [
-        { label: 'Services', href: '/services' },
-        { label: 'Industries', href: '/industries' },
+        // { label: 'Services', href: '/services' },
+        // { label: 'Industries', href: '/industries' },
         { label: 'Our Work', href: '/work' },
         { label: 'Company', href: '/about' },
         { label: 'Resources', href: '/resources' },

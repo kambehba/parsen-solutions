@@ -2,13 +2,13 @@
   const year = new Date().getFullYear();
 
   const serviceLinks = [
-    { label: 'Website Design', href: '/services/custom-web-design-agency' },
-    { label: 'Website Development', href: '/services/custom-website-development' },
-    { label: 'SEO + AI Visibility', href: '/services/seo' },
-    { label: 'Conversion Optimization', href: '/services/conversion-optimization' },
-    { label: 'Demand Generation', href: '/services/demand-generation' },
-    { label: 'Paid Media', href: '/services/paid-media' },
-    { label: 'Website Maintenance', href: '/services/website-maintenance-and-support' },
+    { label: 'Embedded Systems' },
+    { label: 'PLC Programming' },
+    { label: 'IoT Solutions' },
+    { label: 'AI & Machine Learning' },
+    { label: 'Data Analytics' },
+    { label: 'Cloud Computing' },
+
   ];
 
   const industryLinks = [
@@ -39,10 +39,10 @@
       <!-- Brand -->
       <div class="flex flex-col gap-4">
         <a href="/" class="font-[family-name:var(--font-display)] font-extrabold text-2xl text-white tracking-tight">
-          blennd
+          Parsen Solutions LLC
         </a>
         <p class="text-sm text-white/40 leading-relaxed max-w-[220px]">
-          Award-winning web design and digital marketing agency helping brands grow online.
+          .
         </p>
         <div class="flex gap-4 mt-2">
           {#each [
@@ -80,25 +80,13 @@
           {/each}
         </div>
 
-        <div class="flex flex-col gap-2">
-          <h4 class="font-[family-name:var(--font-display)] text-[0.65rem] font-bold tracking-[0.12em] uppercase text-white/30 mb-2">Industries</h4>
-          {#each industryLinks as link}
-            <a href={link.href} class="text-sm text-white/60 hover:text-white transition-colors">{link.label}</a>
-          {/each}
-        </div>
-
-        <div class="flex flex-col gap-2">
-          <h4 class="font-[family-name:var(--font-display)] text-[0.65rem] font-bold tracking-[0.12em] uppercase text-white/30 mb-2">Company</h4>
-          {#each companyLinks as link}
-            <a href={link.href} class="text-sm text-white/60 hover:text-white transition-colors">{link.label}</a>
-          {/each}
-        </div>
+        
       </div>
     </div>
 
     <!-- Bottom -->
     <div class="flex flex-col sm:flex-row items-center justify-between pt-8 border-t border-white/[0.08] gap-4 text-xs text-white/25">
-      <p>© {year} Blennd. All rights reserved.</p>
+      <p>© {year} Parsen Solutions LLC. All rights reserved.</p>
       <div class="flex gap-6">
         <a href="/privacy-policy" class="hover:text-white/60 transition-colors">Privacy Policy</a>
         <a href="/terms" class="hover:text-white/60 transition-colors">Terms of Service</a>
