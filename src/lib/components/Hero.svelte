@@ -33,20 +33,7 @@
         Build, optimize, and grow with a digital partner built for results.
       </p>
 
-      <!-- <div class="flex flex-wrap gap-4">
-        <a
-          href="/contact"
-          class="inline-flex items-center px-6 py-3.5 bg-brand-accent hover:bg-brand-accent-hover text-white font-[family-name:var(--font-display)] text-sm font-semibold rounded-sm transition-colors"
-        >
-          Book a Strategy Callv
-        </a>
-        <a
-          href="/work"
-          class="inline-flex items-center px-6 py-3.5 border-[1.5px] border-brand-black text-brand-black hover:bg-brand-black hover:text-white font-[family-name:var(--font-display)] text-sm font-semibold rounded-sm transition-colors"
-        >
-          View Our Work
-        </a>
-      </div> -->
+     
     </div>
 
     <!-- Right — hero cards -->

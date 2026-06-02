@@ -69,46 +69,12 @@
   ];
 
   const stats: { value: string; label: string }[] = [
-    { value: '500+', label: 'Websites Launched' },
-    { value: '$2B+', label: 'Influenced Pipeline' },
+    { value: '10', label: 'projects' },
+    { value: '$2', label: 'low cost' },
     { value: '47%',  label: 'Avg Conversion Lift' },
   ];
 
-  const industries: Industry[] = [
-    { name: 'SaaS & Tech',         desc: 'Scale your tech company with a better website and growth plan.',                         cta: 'Great for SaaS products and tech companies',          href: '/industries/saas-tech',          bg: '#1a1a2e' },
-    { name: 'Health & Wellness',    desc: 'Accelerate growth with a high-performing website and more effective marketing.',         cta: 'Great for healthcare brands and wellness companies',   href: '/industries/health-wellness',    bg: '#0d1f1a' },
-    { name: 'Hospitality & Travel', desc: 'Drive more bookings with a standout website and stronger marketing.',                   cta: 'Great for hotels and transportation brands',           href: '/industries/hospitality-travel', bg: '#1a1008' },
-    { name: 'Construction',         desc: 'Modernize your brand with a high-impact website and better marketing.',                 cta: 'Great for contractors, builders, and developers',     href: '/industries/construction',       bg: '#1a0a0a' },
-    { name: 'IT Companies',         desc: 'Strengthen your IT company with a custom website and growth system.',                   cta: 'Great for MSPs, consultants, and enterprise firms',   href: '/industries/it-companies',       bg: '#0a1020' },
-    { name: 'eCommerce',            desc: 'Increase revenue with a higher-converting website and performance marketing.',          cta: 'Great for brands selling products online',             href: '/industries/ecommerce',          bg: '#0d0d1a' },
-    { name: 'Corporate',            desc: 'Showcase your business with a modern website and stronger marketing.',                  cta: 'Great for established companies building market presence', href: '/industries/corporate',      bg: '#0a1515' },
-    { name: 'Education & Non-Profit', desc: 'Expand your reach with a mission-driven website and marketing campaigns.',           cta: 'Great for schools, universities, and charities',      href: '/industries/education-non-profit', bg: '#0a1020' },
-  ];
-
-  const services: Service[] = [
-    {
-      label: 'Website Design & Development',
-      heading: "Get a high-impact website that's built to perform.",
-      body: 'We design and develop custom websites that balance brand, usability, and conversion from day one. Every site is fast, scalable, and easy to manage — so it grows with your business instead of holding it back.',
-      cta: 'Explore Website Design & Development',
-      href: '/services/web-design-agency',
-    },
-    {
-      label: 'Website Optimization',
-      heading: 'Optimize for conversions and AI-powered search.',
-      body: 'From user journey audits to optimizing for AI answer engines, Blennd helps you improve how your site gets discovered across search, AI-driven results, and other high-intent channels.',
-      cta: 'Improve Website Performance',
-      href: '/services/website-optimization',
-    },
-    {
-      label: 'Growth Marketing',
-      heading: 'Scale your marketing and drive predictable growth.',
-      body: "Traffic alone doesn't grow a business — strategy does. We connect your website to smart growth marketing across SEO, content, paid media, and lifecycle campaigns that drive measurable results.",
-      cta: 'Explore Digital Marketing Services',
-      href: '/services/digital-marketing',
-    },
-  ];
-
+  
   
 
   const testimonials: Testimonial[] = [
@@ -190,14 +156,12 @@
         Who We Are
       </div>
       <h2 class="font-[family-name:var(--font-display)] font-extrabold text-[clamp(1.75rem,3vw,2.5rem)] leading-tight tracking-tight">
-        From websites to demand generation, we drive business impact.
+        Digital Innovation for the Real World: Where Technology Meets Ingenuity
       </h2>
       <p class="text-brand-gray-dark leading-relaxed">
-        AI has changed how customers discover, evaluate, and experience brands online. Today, websites, digital experiences, and growth systems can no longer operate in silos — they need to work together to resonate with humans, rank in AI search, and drive measurable revenue. Blennd is the partner modern teams choose to connect it all.
+        Parsen Solutions is driven by a mission to think beyond conventional boundaries and engineer innovation where it’s least expected. We specialize in integrating IoT, AI, and embedded systems into environments that demand smarter, more adaptive solutions—bringing intelligence to places others overlook. By combining deep technical expertise with creative problem-solving, we transform complex challenges into efficient, real-world systems that push the limits of what technology can achieve.
       </p>
-      <a href="/contact" class="self-start inline-flex items-center px-6 py-3.5 bg-brand-accent hover:bg-brand-accent-hover text-white font-[family-name:var(--font-display)] text-sm font-semibold rounded-sm transition-colors">
-        Book a Strategy Call
-      </a>
+      
     </div>
 
     <div class="flex flex-col divide-y divide-brand-gray-light">
@@ -219,13 +183,10 @@
       Ready to build something great?
     </h2>
     <p class="text-white/80 text-lg max-w-md mx-auto mb-8 leading-relaxed">
-      Let's talk about your website, growth goals, and how Blennd can help you get there.
+      Let's talk about your website, growth goals, and how Parsen Solutions LLC can help you get there.
     </p>
-    <a
-      href="/contact"
-      class="inline-flex items-center px-8 py-4 bg-white text-brand-accent hover:bg-brand-black hover:text-white font-[family-name:var(--font-display)] text-sm font-bold rounded-sm transition-colors"
-    >
-      Book a Strategy Call
-    </a>
+    <p class="text-white/80 text-lg max-w-md mx-auto mb-8 leading-relaxed">
+      Office:  407.455.2707
+    </p>
   </div>
 </section>

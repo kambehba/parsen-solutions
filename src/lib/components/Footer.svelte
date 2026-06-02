@@ -11,23 +11,7 @@
 
   ];
 
-  const industryLinks = [
-    { label: 'SaaS & Tech', href: '/industries/saas-tech' },
-    { label: 'Health & Wellness', href: '/industries/health-wellness' },
-    { label: 'Hospitality & Travel', href: '/industries/hospitality-travel' },
-    { label: 'Construction', href: '/industries/construction' },
-    { label: 'IT Companies', href: '/industries/it-companies' },
-    { label: 'eCommerce', href: '/industries/ecommerce' },
-    { label: 'Corporate', href: '/industries/corporate' },
-  ];
-
-  const companyLinks = [
-    { label: 'About Blennd', href: '/about' },
-    { label: 'Our Work', href: '/work' },
-    { label: 'Resources', href: '/resources' },
-    { label: 'Pricing', href: '/pricing' },
-    { label: 'Contact Us', href: '/contact' },
-  ];
+ 
 </script>
 
 <footer class="bg-brand-black text-white pt-20 pb-8">

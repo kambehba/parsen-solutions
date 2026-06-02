@@ -1,6 +1,8 @@
 <script lang="ts">
   import sepid_image from '$lib/assets/sepid.jpg';
   import rustin_image from '$lib/assets/rustin.jpg';
+  import bersum_image from '$lib/assets/bersum.jpg';
+  import kam_image from '$lib/assets/kam.jpg';
   interface Employee {
     id: number;
     name: string;
@@ -13,29 +15,29 @@
   const orgData: Employee = {
     id: 1,
     name: "Rustin Sam Parsen",
-    title: "Chief Executive Officer",
+    title: "Founder & Chief Executive Officer",
     avatar: rustin_image,
     children: [
       {
         id: 2,
         name: "Kam Parsen",
-        title: "VP of Finance",
-        department: "Finance",
-        avatar: "https://api.dicebear.com/9.x/personas/svg?seed=Sophia&backgroundColor=ffd5dc",
+        title: "Chief Engineer",
+        department: "Research and Development",
+        avatar: kam_image,
       },
       {
         id: 3,
         name: "Niki Esmikani",
-        title: "VP of HR",
-        department: "Human Resources",
+        title: "Marketing Officer",
+        department: "Sales and Marketing",
         avatar: sepid_image,
       },
       {
         id: 4,
         name: "Bersum Parsen",
-        title: "General Counsel",
-        department: "Legal",
-        avatar: "https://api.dicebear.com/9.x/personas/svg?seed=Isabella&backgroundColor=d1f4d1",
+        title: "Operations Officer",
+        department: "Manufacturing",
+        avatar: bersum_image,
       },
     ],
   };
@@ -155,20 +157,6 @@
       </div>
     </div>
   </div>
-
-  <!-- Legend -->
-  <div class="mt-16 flex flex-wrap gap-3 justify-center">
-    {#each [
-      { label: 'Finance', color: 'bg-emerald-100 text-emerald-700' },
-      { label: 'Human Resources', color: 'bg-purple-100 text-purple-700' },
-      { label: 'Legal', color: 'bg-rose-100 text-rose-700' },
-      { label: 'Product', color: 'bg-amber-100 text-amber-700' },
-    ] as dept}
-      <span class="px-3 py-1 rounded-full text-xs font-semibold {dept.color}">{dept.label}</span>
-    {/each}
-  </div>
-
-  <p class="mt-8 text-slate-300 text-xs">Hover over any card for details</p>
 </div>
 
 <style>

@@ -53,14 +53,12 @@
       
 
       <li><a href="/" class="px-3 py-2 font-[family-name:var(--font-display)] text-sm font-semibold text-brand-black hover:text-brand-accent transition-colors">Home</a></li>
-      <li><a href="/work" class="px-3 py-2 font-[family-name:var(--font-display)] text-sm font-semibold text-brand-black hover:text-brand-accent transition-colors">Products</a></li>
-      <li><a href="/about" class="px-3 py-2 font-[family-name:var(--font-display)] text-sm font-semibold text-brand-black hover:text-brand-accent transition-colors">Research and Developments</a></li>
+      <li><a href="/products" class="px-3 py-2 font-[family-name:var(--font-display)] text-sm font-semibold text-brand-black hover:text-brand-accent transition-colors">Products</a></li>
+      <li><a href="/rd" class="px-3 py-2 font-[family-name:var(--font-display)] text-sm font-semibold text-brand-black hover:text-brand-accent transition-colors">Research and Developments</a></li>
       <li><a href="/meetTheTeam" class="px-3 py-2 font-[family-name:var(--font-display)] text-sm font-semibold text-brand-black hover:text-brand-accent transition-colors">Meet the Team</a></li>
     </ul>
 
-    <a href="/contact" class="hidden lg:inline-flex items-center px-5 py-3 bg-brand-accent hover:bg-brand-accent-hover text-white font-[family-name:var(--font-display)] text-sm font-semibold rounded-sm transition-colors flex-shrink-0">
-      Book a Call
-    </a>
+    
 
     <!-- Mobile toggle -->
     <button
@@ -80,8 +78,8 @@
       {#each [
         // { label: 'Services', href: '/services' },
         // { label: 'Industries', href: '/industries' },
-        { label: 'Our Work', href: '/work' },
-        { label: 'Company', href: '/about' },
+        { label: 'Meet the Team', href: '/meetTheTeam' },
+        { label: 'Products', href: '/about' },
         { label: 'Resources', href: '/resources' },
       ] as link}
         <a href={link.href} class="font-[family-name:var(--font-display)] font-semibold py-4 border-b border-brand-gray-light text-brand-black">{link.label}</a>

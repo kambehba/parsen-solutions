@@ -86,8 +86,8 @@
 </script>
 
 <svelte:head>
-  <title>Our Work — Case Studies | Blennd</title>
-  <meta name="description" content="Explore Blennd's portfolio of award-winning web design, development, and digital marketing case studies." />
+  <title>Products | Parsen Solutions</title>
+  <meta name="description" content="Explore Parsen Solutions' portfolio of award-winning web design, development, and digital marketing case studies." />
 </svelte:head>
 
 <!-- Page Header -->
@@ -108,84 +108,3 @@
   </div>
 </section>
 
-<!-- Filter Bar -->
-<section class="sticky top-20 z-40 bg-white border-b border-brand-gray-light">
-  <div class="max-w-[1280px] mx-auto px-8 flex items-center gap-2 overflow-x-auto py-4">
-    {#each ['All', ...allTags] as tag}
-      <button
-        onclick={() => (activeFilter = tag)}
-        class="flex-shrink-0 px-4 py-1.5 rounded-full text-xs font-[family-name:var(--font-display)] font-bold tracking-wide transition-all cursor-pointer
-          {activeFilter === tag
-            ? 'bg-brand-black text-white'
-            : 'bg-brand-off-white text-brand-gray-dark hover:bg-brand-gray-light'}"
-      >
-        {tag}
-      </button>
-    {/each}
-  </div>
-</section>
-
-<!-- Case Studies Grid -->
-<section class="py-16 bg-white">
-  <div class="max-w-[1280px] mx-auto px-8">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      {#each filtered as cs}
-        <article class="group border border-brand-gray-light rounded overflow-hidden flex flex-col hover:shadow-xl hover:-translate-y-1 transition-all duration-200">
-          <!-- Image placeholder -->
-          <div class="h-56 flex items-center justify-center relative overflow-hidden" style="background-color: {cs.accent}">
-            <div class="w-20 h-20 rounded-full bg-white/10 flex items-center justify-center font-[family-name:var(--font-display)] font-extrabold text-4xl text-white/60">
-              {cs.client[0]}
-            </div>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-          </div>
-
-          <!-- Tags -->
-          <div class="flex gap-2 flex-wrap px-6 pt-5">
-            {#each cs.tags as tag}
-              <span class="font-[family-name:var(--font-display)] text-[0.6rem] font-bold tracking-[0.1em] uppercase text-brand-accent bg-brand-accent/10 px-2 py-1 rounded-sm">
-                {tag}
-              </span>
-            {/each}
-          </div>
-
-          <!-- Body -->
-          <div class="px-6 pb-6 pt-3 flex flex-col gap-3 flex-1">
-            <p class="text-xs text-brand-gray-mid font-[family-name:var(--font-display)] font-semibold uppercase tracking-widest">{cs.client}</p>
-            <h2 class="font-[family-name:var(--font-display)] font-bold text-lg leading-snug">{cs.result}</h2>
-            <p class="text-sm text-brand-gray-dark leading-relaxed flex-1">{cs.detail}</p>
-            <a
-              href={cs.href}
-              class="self-start font-[family-name:var(--font-display)] text-xs font-bold text-brand-accent hover:underline mt-1"
-            >
-              View Case Study →
-            </a>
-          </div>
-        </article>
-      {/each}
-    </div>
-
-    {#if filtered.length === 0}
-      <div class="py-24 text-center text-brand-gray-mid font-[family-name:var(--font-display)]">
-        No case studies found for this filter.
-      </div>
-    {/if}
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="py-24 bg-brand-black text-white text-center">
-  <div class="max-w-[1280px] mx-auto px-8">
-    <h2 class="font-[family-name:var(--font-display)] font-extrabold text-[clamp(2rem,4vw,3rem)] tracking-tight mb-4">
-      Ready to be our next success story?
-    </h2>
-    <p class="text-white/70 text-lg max-w-md mx-auto mb-8 leading-relaxed">
-      Let's talk about what results would look like for your business.
-    </p>
-    <a
-      href="/contact"
-      class="inline-flex items-center px-8 py-4 bg-brand-accent hover:bg-brand-accent-hover text-white font-[family-name:var(--font-display)] text-sm font-bold rounded-sm transition-colors"
-    >
-      Book a Strategy Call
-    </a>
-  </div>
-</section>
