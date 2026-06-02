@@ -5,6 +5,7 @@
   import microchip from '$lib/assets/clients/microchip.png';
   import ucf from '$lib/assets/clients/ucf.png';
   import texas from '$lib/assets/clients/texas.png';
+  import i9 from '$lib/assets/i9.png';
   
 
   // ── Types ──────────────────────────────────────────────────────────────────
@@ -69,9 +70,8 @@
   ];
 
   const stats: { value: string; label: string }[] = [
-    { value: '10', label: 'projects' },
-    { value: '$2', label: 'low cost' },
-    { value: '47%',  label: 'Avg Conversion Lift' },
+    { value: 'From Observation to Automation.', label: '' },
+   
   ];
 
   
@@ -128,7 +128,7 @@
 <!-- ── HERO ─────────────────────────────────────────────────────────────── -->
 <Hero />
 <!-- ── MARQUEE ──────────────────────────────────────────────────────────── -->
-<section class="py-6 border-b border-brand-gray-light overflow-hidden">
+<section class="py-6 border-b border-brand-gray-light overflow-hidden bg-amber-50">
   <div class="whitespace-nowrap overflow-hidden">
     <div class="inline-flex animate-marquee w-max">
       {#each [...clients,...clients] as client}
@@ -165,12 +165,12 @@
     </div>
 
     <div class="flex flex-col divide-y divide-brand-gray-light">
-      {#each stats as stat}
-        <div class="py-8 first:pt-0 last:pb-0">
-          <span class="block font-[family-name:var(--font-display)] font-extrabold text-[3rem] tracking-tight leading-none">{stat.value}</span>
-          <span class="text-sm text-brand-gray-mid font-medium mt-2 block">{stat.label}</span>
-        </div>
-      {/each}
+      
+       <img
+            src={i9}
+            alt="i9"
+            class="h-90 w-auto object-contain"
+          />
     </div>
   </div>
 </section>

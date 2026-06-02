@@ -1,4 +1,5 @@
 <script lang="ts">
+  import OrlandoWeather from '$lib/components/OrlandoWeather.svelte';
   interface HeroCard {
     icon: string;
     heading: string;
@@ -38,6 +39,7 @@
 
     <!-- Right — hero cards -->
     <div class="hidden lg:flex flex-col gap-4">
+    <OrlandoWeather />
       <!-- {#each cards as card}
         <a
           href={card.href}
