@@ -95,25 +95,51 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap');
 
-  :global(body) { margin: 0; }
+  :global(*, *::before, *::after) { box-sizing: border-box; }
+  :global(html, body) {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+  }
 
   .wrap {
     font-family: 'Space Mono', monospace;
-    display: inline-block;
-    padding: 1rem;
+    /* Always fill the available width, never overflow */
+    width: 100%;
+    min-width: 0;
+    padding: 0.75rem;
   }
 
   .card {
     position: relative;
     overflow: hidden;
     border-radius: 1.25rem;
+    /* Fill wrap but cap at 380px; never shrink below 0 */
     width: 100%;
     max-width: 380px;
+    min-width: 0;
+    margin: 0 auto;
     border: 1px solid rgba(251,146,60,0.2);
     background:
       radial-gradient(ellipse 90% 50% at 50% -5%, rgba(251,146,60,0.15) 0%, transparent 65%),
       linear-gradient(160deg, #0d1321 0%, #07111f 60%, #030810 100%);
     box-shadow: 0 0 48px rgba(251,146,60,0.07), 0 8px 40px rgba(0,0,0,0.7);
+  }
+
+  /* Scale the entire card contents when viewport is narrow */
+  @media (max-width: 400px) {
+    .wrap { padding: 0.5rem; }
+  }
+  @media (max-width: 360px) {
+    .wrap { padding: 0.35rem; }
+    .card { border-radius: 1rem; }
+    /* Scale down all text uniformly via font-size on the card root */
+    .card { font-size: 0.85em; }
+  }
+  @media (max-width: 300px) {
+    .wrap { padding: 0.25rem; }
+    .card { font-size: 0.72em; border-radius: 0.85rem; }
   }
 
   .orb {
@@ -150,7 +176,10 @@
     padding: 0.45rem 0.5rem;
     text-align: center;
     transition: background 0.2s, border-color 0.2s, transform 0.2s;
-    flex: 1;
+    /* Equal columns, never overflow */
+    flex: 1 1 0;
+    min-width: 0;
+    overflow: hidden;
   }
   .stat:hover {
     background: rgba(251,146,60,0.07);
@@ -166,15 +195,15 @@
     <div class="orb" style="width:140px;height:140px;bottom:-50px;left:-30px;background:rgba(56,189,248,0.08);filter:blur(55px);animation-delay:-4s;"></div>
 
     <!-- Header -->
-    <div style="position:relative;z-index:10;padding:0.9rem 1.4rem 0.65rem;text-align:center;">
-      <div style="display:flex;align-items:center;justify-content:center;gap:0.4rem;margin-bottom:0.35rem;">
-        <span class="live-dot" style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#fb923c;"></span>
-        <span style="font-size:0.6rem;color:#fb923c;letter-spacing:0.2em;text-transform:uppercase;">Live Weather</span>
+    <div style="position:relative;z-index:10;padding:0.9em 1.4em 0.65em;text-align:center;">
+      <div style="display:flex;align-items:center;justify-content:center;gap:0.4em;margin-bottom:0.3em;">
+        <span class="live-dot" style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#fb923c;flex-shrink:0;"></span>
+        <span style="font-size:0.6em;color:#fb923c;letter-spacing:0.2em;text-transform:uppercase;">Live Weather</span>
       </div>
-      <h1 class="city" style="font-size:2.4rem;color:#fff;line-height:1;text-shadow:0 0 30px rgba(251,146,60,0.35);margin:0;">
+      <h1 class="city" style="font-size:2.4em;color:#fff;line-height:1;text-shadow:0 0 30px rgba(251,146,60,0.35);margin:0;">
         Orlando
       </h1>
-      <p style="font-size:0.6rem;color:rgba(253,186,116,0.65);letter-spacing:0.28em;text-transform:uppercase;margin:0.15rem 0 0;">
+      <p style="font-size:0.6em;color:rgba(253,186,116,0.65);letter-spacing:0.25em;text-transform:uppercase;margin:0.12em 0 0;">
         Florida · USA
       </p>
     </div>
@@ -182,84 +211,83 @@
     <div class="divider"></div>
 
     <!-- Body -->
-    <div style="position:relative;z-index:10;padding:0.7rem 1.4rem 0.8rem;">
+    <div style="position:relative;z-index:10;padding:0.7em 1.4em 0.8em;">
 
       {#if loading}
-        <div style="display:flex;flex-direction:column;align-items:center;gap:0.6rem;padding:1.5rem 0;">
-          <div style="width:28px;height:28px;border-radius:50%;border:2px solid rgba(251,146,60,0.25);border-top-color:#fb923c;animation:spin 0.9s linear infinite;"></div>
-          <p style="font-size:0.6rem;color:rgba(255,255,255,0.25);letter-spacing:0.15em;">Fetching conditions…</p>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:0.5em;padding:1.2em 0;">
+          <div style="width:24px;height:24px;border-radius:50%;border:2px solid rgba(251,146,60,0.25);border-top-color:#fb923c;animation:spin 0.9s linear infinite;"></div>
+          <p style="font-size:0.6em;color:rgba(255,255,255,0.25);letter-spacing:0.12em;">Fetching conditions…</p>
         </div>
 
       {:else if error}
-        <div style="text-align:center;padding:1rem 0;">
-          <p style="color:#f87171;font-size:0.7rem;">⚠ {error}</p>
+        <div style="text-align:center;padding:0.9em 0;">
+          <p style="font-size:0.65em;color:#f87171;">⚠ {error}</p>
           <button on:click={fetchWeather}
-            style="margin-top:0.6rem;padding:0.3rem 1rem;border-radius:999px;border:1px solid rgba(251,146,60,0.35);color:#fdba74;font-size:0.65rem;background:none;cursor:pointer;">
+            style="margin-top:0.5em;padding:0.3em 0.9em;border-radius:999px;border:1px solid rgba(251,146,60,0.35);color:#fdba74;font-size:0.6em;background:none;cursor:pointer;">
             Retry
           </button>
         </div>
 
       {:else if weather && weatherInfo}
 
-        <!-- Day + Time row -->
-        <div class="fade-up" class:in={animateIn} style="transition-delay:0.05s;margin-bottom:0.55rem;">
-          <p style="font-size:0.6rem;color:rgba(255,255,255,0.35);letter-spacing:0.15em;text-transform:uppercase;margin:0 0 0.15rem;">
+        <!-- Day + Time -->
+        <div class="fade-up" class:in={animateIn} style="transition-delay:0.05s;margin-bottom:0.5em;">
+          <p style="font-size:1em;color:rgba(255,255,255,0.35);letter-spacing:0.12em;text-transform:uppercase;margin:0 0 0.1em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
             {formatDay(currentTime)}
           </p>
-          <p class="num" style="font-size:2rem;color:#fff;line-height:1;text-shadow:0 0 18px rgba(251,146,60,0.2);">
+          <p class="num" style="font-size:2em;color:#fff;line-height:1;text-shadow:0 0 18px rgba(251,146,60,0.2);">
             {formatTime(currentTime)}
           </p>
         </div>
 
-        <div class="divider" style="margin:0 0 0.55rem;opacity:0.45;"></div>
+        <div class="divider" style="margin:0 0 0.5em;opacity:0.45;"></div>
 
-        <!-- Temp + condition row -->
+        <!-- Temp + condition -->
         <div class="fade-up" class:in={animateIn}
-          style="transition-delay:0.13s;display:flex;align-items:flex-end;gap:0.75rem;margin-bottom:0.55rem;">
-          <div style="line-height:1;">
-            <span class="num" style="font-size:4.2rem;color:#fff;text-shadow:0 0 40px rgba(251,146,60,0.3);">
-              {weather.temperature}
-            </span>
-            <span class="num" style="font-size:1.6rem;color:rgba(253,186,116,0.8);vertical-align:top;margin-top:0.6rem;display:inline-block;">°F</span>
+          style="transition-delay:0.13s;display:flex;align-items:flex-end;gap:0.5em;margin-bottom:0.5em;">
+          <div style="line-height:1;flex-shrink:0;">
+            <span class="num" style="font-size:4.2em;color:#fff;text-shadow:0 0 40px rgba(251,146,60,0.3);">{weather.temperature}</span><span
+              class="num" style="font-size:1.6em;color:rgba(253,186,116,0.8);vertical-align:top;margin-top:0.6em;display:inline-block;">°F</span>
           </div>
-          <div style="margin-bottom:0.25rem;flex:1;text-align:right;">
-            <span style="font-size:1.8rem;">{weatherInfo.emoji}</span>
-            <p style="font-size:0.65rem;color:#fff;margin:0.1rem 0 0;letter-spacing:0.05em;">{weatherInfo.label}</p>
-            <p style="font-size:0.6rem;color:rgba(255,255,255,0.35);margin:0.1rem 0 0;">Feels {weather.feelsLike}°F</p>
+          <div style="margin-bottom:0.2em;flex:1;text-align:right;min-width:0;overflow:hidden;">
+            <span style="font-size:1.8em;">{weatherInfo.emoji}</span>
+            <p style="font-size:1em;color:#fff;margin:0.1em 0 0;letter-spacing:0.04em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
+              {weatherInfo.label}
+            </p>
+            <p style="font-size:1em;color:rgba(255,255,255,0.35);margin:0.08em 0 0;white-space:nowrap;">
+              Feels {weather.feelsLike}°F
+            </p>
           </div>
         </div>
 
-        <div class="divider" style="margin:0 0 0.55rem;opacity:0.45;"></div>
+        <div class="divider" style="margin:0 0 0.5em;opacity:0.45;"></div>
 
-        <!-- Stat row -->
+        <!-- Stats -->
         <div class="fade-up" class:in={animateIn}
-          style="transition-delay:0.22s;display:flex;gap:0.4rem;">
-
+          style="transition-delay:0.22s;display:flex;gap:0.35em;">
           <div class="stat">
-            <div style="font-size:1rem;margin-bottom:0.1rem;">💧</div>
-            <div class="num" style="font-size:1.1rem;color:#fff;line-height:1;">{weather.humidity}%</div>
-            <div style="font-size:0.52rem;color:rgba(255,255,255,0.3);margin-top:0.15rem;letter-spacing:0.08em;">Humidity</div>
+            <div style="font-size:1em;margin-bottom:0.08em;">💧</div>
+            <div class="num" style="font-size:1.1em;color:#fff;line-height:1;">{weather.humidity}%</div>
+            <div style="font-size:0.52em;color:rgba(255,255,255,0.3);margin-top:0.1em;letter-spacing:0.06em;">Humidity</div>
           </div>
-
           <div class="stat">
-            <div style="font-size:1rem;margin-bottom:0.1rem;">🌬️</div>
-            <div class="num" style="font-size:1.1rem;color:#fff;line-height:1;">{weather.windSpeed}</div>
-            <div style="font-size:0.52rem;color:rgba(255,255,255,0.3);margin-top:0.15rem;letter-spacing:0.08em;">mph Wind</div>
+            <div style="font-size:1em;margin-bottom:0.08em;">🌬️</div>
+            <div class="num" style="font-size:1.1em;color:#fff;line-height:1;">{weather.windSpeed}</div>
+            <div style="font-size:0.52em;color:rgba(255,255,255,0.3);margin-top:0.1em;letter-spacing:0.06em;">mph Wind</div>
           </div>
-
           <div class="stat">
-            <div style="font-size:1rem;margin-bottom:0.1rem;">🕶️</div>
-            <div class="num" style="font-size:1.1rem;color:{uvColor(weather.uvIndex)};line-height:1;">{weather.uvIndex}</div>
-            <div style="font-size:0.52rem;color:rgba(255,255,255,0.3);margin-top:0.15rem;letter-spacing:0.08em;">UV Index</div>
+            <div style="font-size:1em;margin-bottom:0.08em;">🕶️</div>
+            <div class="num" style="font-size:1.1em;color:{uvColor(weather.uvIndex)};line-height:1;">{weather.uvIndex}</div>
+            <div style="font-size:0.52em;color:rgba(255,255,255,0.3);margin-top:0.1em;letter-spacing:0.06em;">UV Index</div>
           </div>
-
         </div>
+
       {/if}
     </div>
 
     <!-- Footer -->
-    <div style="position:relative;z-index:10;padding:0 1.4rem 0.6rem;text-align:center;">
-      <p style="font-size:0.52rem;color:rgba(255,255,255,0.12);letter-spacing:0.15em;">
+    <div style="position:relative;z-index:10;padding:0 1.4em 0.6em;text-align:center;">
+      <p style="font-size:0.52em;color:rgba(255,255,255,0.12);letter-spacing:0.12em;">
         Open-Meteo · EDT (UTC−4)
       </p>
     </div>

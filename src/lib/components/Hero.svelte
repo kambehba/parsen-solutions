@@ -38,7 +38,7 @@
     </div>
 
     <!-- Right — hero cards -->
-    <div class="hidden lg:flex flex-col gap-4">
+    <!-- <div class="hidden lg:flex flex-col gap-4"> -->
     <OrlandoWeather />
       <!-- {#each cards as card}
         <a
@@ -53,7 +53,7 @@
           <span class="text-brand-accent text-lg">→</span>
         </a>
       {/each} -->
-    </div>
+    <!-- </div> -->
   </div>
 
   <!-- Talk bar -->

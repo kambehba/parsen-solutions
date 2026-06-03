@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Products from '$lib/components/Products.svelte'; 
   interface CaseStudy {
     client: string;
     result: string;
@@ -92,19 +93,7 @@
 
 <!-- Page Header -->
 <section class="pt-[calc(4rem+80px)] pb-16 bg-brand-off-white">
-  <div class="max-w-[1280px] mx-auto px-8">
-    <div class="flex items-center gap-3 text-[0.65rem] font-[family-name:var(--font-display)] font-bold tracking-[0.15em] uppercase text-brand-gray-mid mb-5">
-      <span class="w-6 h-[1.5px] bg-brand-accent"></span>
-      Our Work
-    </div>
-    <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
-      <h1 class="font-[family-name:var(--font-display)] font-extrabold text-[clamp(2.5rem,5vw,4rem)] leading-[1.08] tracking-tight text-brand-black max-w-xl">
-        Results that speak for themselves.
-      </h1>
-      <p class="text-brand-gray-dark max-w-sm leading-relaxed">
-        From SaaS startups to enterprise brands — we build websites and marketing systems that drive real growth.
-      </p>
-    </div>
-  </div>
+<Products />
+  
 </section>
 

@@ -1,7 +1,7 @@
 <script lang="ts">
-  import sepid_image from '$lib/assets/sepid.jpg';
-  import rustin_image from '$lib/assets/rustin.jpg';
-  import bersum_image from '$lib/assets/bersum.jpg';
+  import sepid_image from '$lib/assets/sepid.png';
+  import rustin_image from '$lib/assets/rustin.png';
+  import bersum_image from '$lib/assets/bersum.png';
   import kam_image from '$lib/assets/kam.jpg';
   interface Employee {
     id: number;
