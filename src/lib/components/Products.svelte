@@ -1,5 +1,9 @@
 <script lang="ts">
   import { fade, scale } from 'svelte/transition';
+  import p1 from '$lib/assets/products/p1.jpeg';
+  import p2 from '$lib/assets/products/p2.jpeg';
+  import p3 from '$lib/assets/products/p3.jpeg';
+  
 
   interface Product {
     id: number;
@@ -15,24 +19,21 @@
 
   const product: Product = {
     id: 1,
-    title: 'Aether Pro Wireless Headphones',
-    subtitle: 'Studio-Grade Audio · Noise Cancelling · 40h Battery',
-    price: 279.99,
-    originalPrice: 349.99,
+    title: 'Motion Based LEDs for Decoration',
+    subtitle: 'low power consumption , easy to install , custom design',
+    price: 29.99,
+    originalPrice: 49.99,
     currency: 'USD',
     badge: 'Best Seller',
     images: [
-      'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&q=85',
-      'https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?w=400&q=85',
-      'https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400&q=85',
-      'https://images.unsplash.com/photo-1546435770-a3e736863320?w=400&q=85',
+      p1,
+      p2,
+      p3
     ],
     features: [
-      'Adaptive Active Noise Cancellation with 4 dedicated microphones for pristine silence in any environment',
-      'Hi-Res Audio certified with 40mm custom-tuned neodymium drivers delivering a soundstage wide enough to lose yourself in',
-      'Up to 40 hours of playback on a single charge — with a 5-minute quick charge giving you 3 hours instantly',
-      'Feather-light memory foam ear cups and a self-adjusting headband engineered for all-day wear',
-      'Multipoint Bluetooth 5.3 — seamlessly connect to two devices simultaneously without missing a beat',
+      'Why keep lights ON when you can have them automatically turn on and off based on motion detection?',
+      'Programable to your preferences',
+      'Can be used on any decoration',
     ],
   };
 
@@ -243,9 +244,9 @@
           <span class="badge px-3 py-1 rounded-sm" style="background: #2c1f0e; color: #f5f2ee;">
             {product.badge}
           </span>
-          <span class="badge" style="color: #8b7355; letter-spacing: 0.1em;">
+          <!-- <span class="badge" style="color: #8b7355; letter-spacing: 0.1em;">
             Free Shipping · In Stock
-          </span>
+          </span> -->
         </div>
 
         <!-- Title -->
@@ -294,23 +295,24 @@
 
         <!-- CTA Buttons -->
         <div class="flex flex-col gap-3">
-          <button class="add-to-cart w-full py-4 px-8 rounded-sm tracking-widest">
+        Contact us for more information - 407.455.2707
+          <!-- <button class="add-to-cart w-full py-4 px-8 rounded-sm tracking-widest">
             Add to Cart
           </button>
           <button class="wishlist-btn w-full py-3.5 px-8 rounded-sm text-xs tracking-widest uppercase font-medium bg-transparent">
             ♡ &nbsp; Save to Wishlist
-          </button>
+          </button> -->
         </div>
 
         <!-- Trust Signals -->
-        <div class="mt-8 pt-6 border-t flex items-center justify-between" style="border-color: #e2d9cc;">
+        <!-- <div class="mt-8 pt-6 border-t flex items-center justify-between" style="border-color: #e2d9cc;">
           {#each [['🔒', '256-bit Secure Checkout'], ['↩', '30-Day Returns'], ['🛡', '2-Year Warranty']] as [icon, label]}
             <div class="flex flex-col items-center gap-1 text-center">
               <span class="text-base">{icon}</span>
               <span class="text-xs" style="color: #9b8e7a; letter-spacing: 0.04em; line-height: 1.4;">{label}</span>
             </div>
           {/each}
-        </div>
+        </div> -->
 
       </div>
     </div>
